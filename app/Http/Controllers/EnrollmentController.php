@@ -32,6 +32,11 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required',
+            'join_date' => 'date',
+            'fee' => 'int',
+        ]);
         $input = $request->all();
         Enrollment::create($input);
         return redirect('enrollments')->with('flash_message', 'Enrollment Addedd!');

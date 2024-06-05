@@ -18,8 +18,8 @@
 
 
                 {{-- <input type="text" name="course_id" id="course_id" class="form-control"></br> --}}
-                <label>Start Date</label></br>
-                <input type="text" name="start_date" id="start_date" class="form-control"></br>
+                <input type="hidden" name="start_date" id="start_date" class="form-control"
+                    value="{{ date('Y-m-d H:i:s') }}"></br>
                 <input type="submit" value="Save" class="btn btn-success"></br>
             </form>
 

@@ -16,17 +16,26 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Course id</th>
+                            <th>Course</th>
                             <th>Start Date</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @foreach ($batches as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->course_id }}</td>
+                                <td>{{ $item->course->name }}</td>
                                 <td>{{ $item->start_date }}</td>
 
                                 <td>

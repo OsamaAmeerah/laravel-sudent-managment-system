@@ -33,6 +33,10 @@ class BatchController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
         $input = $request->all();
         Batch::create($input);
         return redirect('batches')->with('flash_message', 'Batches Addedd!');

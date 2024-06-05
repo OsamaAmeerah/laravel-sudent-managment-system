@@ -30,6 +30,11 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required',
+            'syllabus' => 'required',
+            'duration' => 'required|int',
+        ]);
         $input = $request->all();
         Course::create($input);
         return redirect('courses')->with('flash_message', 'Course Addedd!');
